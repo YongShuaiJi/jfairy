@@ -58,35 +58,15 @@ public class DefaultCompanyProvider implements CompanyProvider {
 			return;
 		}
 		name = dataMaster.getRandomValue(COMPANY_NAME);
-		// 删除不必要的业务代码
-//		if (baseProducer.trueOrFalse()) {
-//			name += " " + dataMaster.getRandomValue(COMPANY_SUFFIX);
-//		}
 	}
 
-	/**
-	 * In case of the illegal hostname characters in company name
-	 * and truncate it if it is too long (length &gt; 10) after escape
-	 *
-	 * It is compatible with other non-latin language and will not change the original result for latin language.
-	 *
-	 * P.S. Actually the best way for Chinese here is to use phonetic writing (so as Japanese or Korean)
-	 */
 	@Override
 	public void generateDomain() {
 		if (domain != null) {
 			return;
 		}
 
-
 		String host = TextUtils.stripAccents(StringUtils.strip(StringUtils.deleteWhitespace(baseProducer.getFullSpell(name)), ".").replace("/", ""));
-//		暂时注释掉
-//		int len1 = host.length();
-//		host = StringEscapeUtils.escapeJava(host).replaceAll("\\\\u", "");
-//		int len2 = host.length();
-//		if (len2 > len1 && len2 > 10)
-//			host = host.substring(0, 10);
-
 		domain = host + "." + dataMaster.getRandomValue(DOMAIN);
 	}
 
@@ -95,12 +75,7 @@ public class DefaultCompanyProvider implements CompanyProvider {
 		if (email != null) {
 			return;
 		}
-//		Person.Sex sex = baseProducer.trueOrFalse() ? Person.Sex.MALE : Person.Sex.FEMALE;
-//		String firstName = dataMaster.getValuesOfType("firstNames", sex.getName(), String.class);
-//		String lastNames = dataMaster.getValuesOfType("lastNames", sex.getName(), String.class);
-
 		email = baseProducer.getFullSpell(names);
-//		email = dataMaster.getRandomValue(COMPANY_EMAIL);
 	}
 
 	@Override

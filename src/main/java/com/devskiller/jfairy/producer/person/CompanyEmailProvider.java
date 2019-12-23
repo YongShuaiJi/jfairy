@@ -24,7 +24,7 @@ public class CompanyEmailProvider implements Provider<String> {
 
 	@Override
 	public String get() {
-		String pix_em = baseProducers.getFullSpell(firstName + lastName);
+		String pix_em = baseProducers.getFullSpell(lastName + firstName);
 		String email = lowerCase(pix_em + '@' + company.getDomain()).replaceAll(" ", ".");
 		return TextUtils.stripSharpS(TextUtils.stripAccents(email));
 	}

@@ -173,7 +173,7 @@ public class DefaultPersonProvider implements PersonProvider {
 		if (baseProducer.trueOrFalse()) {
 			username = lowerCase(stripAccents(firstName.substring(0, 1) + lastName));
 		} else {
-			username = lowerCase(stripAccents(firstName + lastName.substring(0, 1)));
+			username = lowerCase(stripAccents(lastName.substring(0, 1) + firstName));
 		}
 	}
 

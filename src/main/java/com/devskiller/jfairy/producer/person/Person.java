@@ -97,7 +97,7 @@ public class Person {
 	}
 
 	public String getFullName() {
-		return firstName + " " + lastName;
+		return lastName + firstName;
 	}
 
 	public boolean isMale() {

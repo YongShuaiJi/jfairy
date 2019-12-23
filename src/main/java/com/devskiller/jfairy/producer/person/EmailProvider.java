@@ -27,22 +27,8 @@ public class EmailProvider implements Provider<String> {
 
 	@Override
 	public String get() {
-		String prefix = StringUtils.replace(firstName + lastName, " ", "");;
-//		注释掉：这么写没用，且有问题最好应用全拼代替汉字
-//		switch (baseProducer.randomBetween(1, 3)) {
-//			case 1:
-//				prefix = StringUtils.replace(firstName + lastName, " ", "");
-//				break;
-//			case 2:
-//				prefix = StringUtils.replace(firstName + "." + lastName, " ", ".");
-//				break;
-//			case 3:
-//				prefix = StringUtils.replace(lastName, " ", "");
-//				break;
-//		}
-//		baseProducer.randomBetween()
+		String prefix = StringUtils.replace(lastName + firstName, " ", "");
 		String prefix_em = baseProducer.getFullSpell(prefix);
-
 		String email = lowerCase(prefix_em + '@' + dataMaster.getRandomValue(PERSONAL_EMAIL));
 		return TextUtils.stripSharpS(TextUtils.stripAccents(email));
 	}
