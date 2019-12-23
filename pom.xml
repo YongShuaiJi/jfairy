@@ -3,7 +3,7 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.github.yongshuaiji</groupId>
+	<groupId>io.github.yongshuaiji</groupId>
 	<artifactId>jfairy</artifactId>
 	<version>1.0.1</version>
 
@@ -299,6 +299,19 @@
 <!--							<autoReleaseAfterClose>true</autoReleaseAfterClose>-->
 <!--						</configuration>-->
 <!--					</plugin>-->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
