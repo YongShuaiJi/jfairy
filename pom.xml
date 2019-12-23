@@ -3,13 +3,13 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.devskiller</groupId>
+	<groupId>com.github.yongshuaiji</groupId>
 	<artifactId>jfairy</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 
 	<name>jFairy</name>
 	<description>Java fake data generator</description>
-	<url>https://github.com/Devskiller/jfairy</url>
+	<url>https://github.com/YongShuaiJi/jfairy</url>
 
 	<licenses>
 		<license>
@@ -22,27 +22,15 @@
 
 	<developers>
 		<developer>
-			<id>jkubrynski</id>
-			<name>Jakub Kubrynski</name>
-		</developer>
-		<developer>
-			<id>mariuszs</id>
-			<name>Mariusz Smykuła</name>
-		</developer>
-		<developer>
-			<id>szpak</id>
-			<name>Marcin Zajączkowski</name>
-		</developer>
-		<developer>
-			<id>olga.maciaszek</id>
-			<name>Olga Maciaszek-Sharma</name>
+			<name>jiyongshuai</name>
+			<email>jysnana@163.com</email>
 		</developer>
 	</developers>
 
 	<scm>
-		<connection>scm:git:https://github.com/Devskiller/jfairy</connection>
-		<developerConnection>scm:git:git@github.com:Devskiller/jfairy</developerConnection>
-		<url>https://github.com/Devskiller/jfairy</url>
+		<connection>scm:git:https://github.com/YongShuaiJi/jfairy.git</connection>
+		<developerConnection>scm:git@github.com:YongShuaiJi/jfairy.git</developerConnection>
+		<url>git@github.com:YongShuaiJi/jfairy.git</url>
 		<tag>HEAD</tag>
 	</scm>
 
@@ -61,13 +49,8 @@
 
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/Devskiller/jfairy/issues</url>
+		<url>https://github.com/YongShuaiJi/jfairy/issues</url>
 	</issueManagement>
-
-	<ciManagement>
-		<system>Travis</system>
-		<url>https://travis-ci.org/Devskiller/jfairy</url>
-	</ciManagement>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -305,17 +288,17 @@
 							</execution>
 						</executions>
 					</plugin>
-					<plugin>
-						<groupId>org.sonatype.plugins</groupId>
-						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>1.6.8</version>
-						<extensions>true</extensions>
-						<configuration>
-							<serverId>sonatype-nexus-staging</serverId>
-							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-							<autoReleaseAfterClose>true</autoReleaseAfterClose>
-						</configuration>
-					</plugin>
+<!--					<plugin>-->
+<!--						<groupId>org.sonatype.plugins</groupId>-->
+<!--						<artifactId>nexus-staging-maven-plugin</artifactId>-->
+<!--						<version>1.6.8</version>-->
+<!--						<extensions>true</extensions>-->
+<!--						<configuration>-->
+<!--							<serverId>sonatype-nexus-staging</serverId>-->
+<!--							<nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
+<!--							<autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+<!--						</configuration>-->
+<!--					</plugin>-->
 				</plugins>
 			</build>
 		</profile>

@@ -1,5 +1,6 @@
-package com.devskiller.jfairy;
+package com;
 
+import com.devskiller.jfairy.Fairy;
 import com.devskiller.jfairy.producer.person.Person;
 import org.junit.Test;
 
