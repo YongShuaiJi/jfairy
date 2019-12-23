@@ -21,7 +21,7 @@ public class ZhAddressProvider extends AbstractAddressProvider {
 
 	@Override
 	public Address get() {
-		return new ZhAddress(getStreetNumber(), getStreet(), getApartmentNumber(),
+		return new ZhAddress(getStreetNumber(), getStreet(), getStreets(), getApartmentNumber(),
 			getCity(), getPostalCode());
 	}
 

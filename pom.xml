@@ -5,7 +5,7 @@
 
 	<groupId>com.devskiller</groupId>
 	<artifactId>jfairy</artifactId>
-	<version>0.6.1-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 
 	<name>jFairy</name>
 	<description>Java fake data generator</description>
@@ -77,6 +77,11 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.belerweb</groupId>
+			<artifactId>pinyin4j</artifactId>
+			<version>2.5.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.yaml</groupId>
 			<artifactId>snakeyaml</artifactId>

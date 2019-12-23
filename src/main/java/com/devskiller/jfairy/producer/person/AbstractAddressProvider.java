@@ -11,6 +11,8 @@ public abstract class AbstractAddressProvider implements AddressProvider {
 
 	private static final String STREET = "street";
 
+	private static final String STREETS = "streets";
+
 	protected final BaseProducer baseProducer;
 
 	protected final DataMaster dataMaster;
@@ -31,6 +33,10 @@ public abstract class AbstractAddressProvider implements AddressProvider {
 
 	public String getStreet() {
 		return dataMaster.getRandomValue(STREET);
+	}
+
+	public String getStreets(){
+		return dataMaster.getRandomValue(STREETS);
 	}
 
 	public String getStreetNumber() {

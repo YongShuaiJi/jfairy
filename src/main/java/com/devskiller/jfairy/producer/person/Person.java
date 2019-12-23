@@ -10,7 +10,21 @@ import static com.devskiller.jfairy.producer.person.Person.Sex.MALE;
 public class Person {
 
 	public enum Sex {
-		MALE, FEMALE
+		MALE(0,"男"), FEMALE(1,"女");
+
+		private Integer value;
+		private String name;
+
+		Sex(Integer value, String name) {
+			this.name = name;
+			this.value= value;
+		}
+
+		public String getName(){
+			return this.name;
+		}
+
+		public Integer getValue(){ return this.value; }
 	}
 
 	private final Address address;
@@ -97,6 +111,7 @@ public class Person {
 	public Sex getSex() {
 		return sex;
 	}
+
 
 	public String getTelephoneNumber() {
 		return telephoneNumber;

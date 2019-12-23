@@ -54,12 +54,8 @@ public final class Fairy {
 		return Bootstrap.create();
 	}
 
-	public static Fairy create(Locale locale) {
-		return Bootstrap.create(locale);
-	}
-
-	public static Fairy create(Provider<DataMaster> dataMasterProvider, Locale locale) {
-		return Bootstrap.create(dataMasterProvider, locale);
+	public static Fairy create(Provider<DataMaster> dataMasterProvider) {
+		return Bootstrap.create(dataMasterProvider);
 	}
 
 
@@ -92,8 +88,8 @@ public final class Fairy {
 	 * @param companyProperties desired company features
 	 * @return A {@link com.devskiller.jfairy.producer.company.CompanyProvider} instance
 	 */
-	public Company company(CompanyProperties.CompanyProperty... companyProperties) {
-		return companyFactory.produceCompany(companyProperties).get();
+	public Company company(String names ,CompanyProperties.CompanyProperty... companyProperties) {
+		return companyFactory.produceCompany(names,companyProperties).get();
 	}
 
 	/**

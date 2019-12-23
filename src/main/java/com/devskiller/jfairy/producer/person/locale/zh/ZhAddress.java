@@ -15,13 +15,13 @@ public class ZhAddress extends AbstractAddress {
 	private static final String ROOM = "房";
 	private static final String POSTCODE = "邮编";
 
-	public ZhAddress(String streetNumber, String street, String apartmentNumber, String city, String postalCode) {
-		super(street, streetNumber, apartmentNumber, postalCode, city);
+	public ZhAddress(String streetNumber, String street, String streets, String apartmentNumber, String city, String postalCode) {
+		super(street,streets, streetNumber, apartmentNumber, postalCode, city);
 	}
 
 	@Override
 	public String getAddressLine1() {
-		String line = city + CITY + street + streetNumber + NUMBER;
+		String line = city + CITY + street + streets + streetNumber + NUMBER;
 		if (apartmentNumber.length() > 0)
 			return line + " " + apartmentNumber + ROOM;
 		else

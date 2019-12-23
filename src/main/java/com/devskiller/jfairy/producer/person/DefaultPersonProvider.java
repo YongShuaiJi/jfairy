@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
+import com.devskiller.jfairy.producer.company.CompanyProvider;
 import com.google.inject.assistedinject.Assisted;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -81,10 +82,10 @@ public class DefaultPersonProvider implements PersonProvider {
 	public Person get() {
 
 		generateSex();
-		generateCompany();
 		generateFirstName();
 		generateMiddleName();
 		generateLastName();
+		generateCompany();
 		generateEmail();
 		generateUsername();
 		generateTelephoneNumber();
@@ -117,7 +118,18 @@ public class DefaultPersonProvider implements PersonProvider {
 		if (company != null) {
 			return;
 		}
-		company = companyFactory.produceCompany().get();
+
+
+
+
+
+
+
+
+		String name = lastName+firstName;
+		CompanyProvider companyProvider = companyFactory.produceCompany(name);
+
+		company = companyProvider.get();
 	}
 
 	@Override
@@ -125,7 +137,7 @@ public class DefaultPersonProvider implements PersonProvider {
 		if (firstName != null) {
 			return;
 		}
-		firstName = dataMaster.getValuesOfType(FIRST_NAME, sex.name(), String.class);
+		firstName = dataMaster.getValuesOfType(FIRST_NAME, sex.getName(), String.class);
 	}
 
 	@Override
@@ -133,7 +145,7 @@ public class DefaultPersonProvider implements PersonProvider {
 		if (middleName != null) {
 			return;
 		}
-		middleName = baseProducer.trueOrFalse() ? dataMaster.getValuesOfType(FIRST_NAME, sex.name(), String.class) : "";
+		middleName = baseProducer.trueOrFalse() ? dataMaster.getValuesOfType(FIRST_NAME, sex.getName(), String.class) : "";
 	}
 
 	@Override
@@ -141,7 +153,7 @@ public class DefaultPersonProvider implements PersonProvider {
 		if (lastName != null) {
 			return;
 		}
-		lastName = dataMaster.getValuesOfType(LAST_NAME, sex.name(), String.class);
+		lastName = dataMaster.getValuesOfType(LAST_NAME, sex.getName(), String.class);
 	}
 
 	@Override
@@ -203,7 +215,7 @@ public class DefaultPersonProvider implements PersonProvider {
 		if (companyEmail != null) {
 			return;
 		}
-		CompanyEmailProvider companyEmailProvider = new CompanyEmailProvider(firstName, lastName, company);
+		CompanyEmailProvider companyEmailProvider = new CompanyEmailProvider(firstName, lastName, company,baseProducer);
 		companyEmail = companyEmailProvider.get();
 	}
 
@@ -252,7 +264,7 @@ public class DefaultPersonProvider implements PersonProvider {
 
 	private void generateNationality() {
 		List<Country> countries = Country.findCountryForLanguage(dataMaster.getLanguage());
-		nationality = !countries.isEmpty() ? baseProducer.randomElement(countries) : Country.UnitedKingdom;
+		nationality = !countries.isEmpty() ? baseProducer.randomElement(countries) : Country.China;
 	}
 
 	@Override

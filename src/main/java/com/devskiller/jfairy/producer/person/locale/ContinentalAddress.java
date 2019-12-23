@@ -6,8 +6,8 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
  * An address format typical for European countries but the UK and ex-Soviet union.
  */
 public abstract class ContinentalAddress extends AbstractAddress {
-	public ContinentalAddress(String street, String streetNumber, String apartmentNumber, String postalCode, String city) {
-		super(street, streetNumber, apartmentNumber, postalCode, city);
+	public ContinentalAddress(String street, String streets,String streetNumber, String apartmentNumber, String postalCode, String city) {
+		super(street,streets, streetNumber, apartmentNumber, postalCode, city);
 	}
 
 	protected abstract String getApartmentMark();

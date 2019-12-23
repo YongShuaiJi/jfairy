@@ -1,5 +1,7 @@
 package com.devskiller.jfairy.producer.person;
 
+import com.google.inject.internal.cglib.core.$ClassNameReader;
+
 import java.time.LocalDate;
 
 public final class NationalIdentificationNumberProperties {
@@ -19,6 +21,9 @@ public final class NationalIdentificationNumberProperties {
 				nationalIdentificationNumberProvider.setIssueDate(dateOfBirth);
 			}
 		};
+
+
+
 	}
 
 	public static Property sex(final Person.Sex sex) {

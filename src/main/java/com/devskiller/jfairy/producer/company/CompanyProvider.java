@@ -9,6 +9,8 @@ public interface CompanyProvider extends Provider<Company> {
 	String COMPANY_NAME = "companyNames";
 	String COMPANY_EMAIL = "companyEmails";
 
+
+
 	@Override
 	Company get();
 
@@ -19,6 +21,8 @@ public interface CompanyProvider extends Provider<Company> {
 	void generateEmail();
 
 	void generateVatIdentificationNumber();
+
+	void setNames(String names);
 
 	void setName(String name);
 

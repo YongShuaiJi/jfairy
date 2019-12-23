@@ -7,17 +7,6 @@ import java.util.stream.Collectors;
 import com.devskiller.jfairy.producer.util.LanguageCode;
 
 public enum Country {
-	Poland("PL", LanguageCode.PL),
-	UnitedKingdom("GB", LanguageCode.EN),
-	Australia("AU", LanguageCode.EN),
-	USA("US", LanguageCode.EN),
-	Canada("CA", LanguageCode.EN, LanguageCode.FR),
-	Spain("ES", LanguageCode.ES),
-	France("FR", LanguageCode.FR),
-	Georgia("GE", LanguageCode.KA),
-	Italy("IT", LanguageCode.IT),
-	Germany("DE", LanguageCode.DE),
-	Sweden("SE", LanguageCode.SV),
 	China("CN", LanguageCode.ZH);
 
 	//	ISO 3166 code

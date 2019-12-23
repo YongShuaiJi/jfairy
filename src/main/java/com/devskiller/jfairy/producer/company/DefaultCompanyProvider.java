@@ -2,6 +2,7 @@ package com.devskiller.jfairy.producer.company;
 
 import javax.inject.Inject;
 
+import com.devskiller.jfairy.producer.person.Person;
 import com.google.inject.assistedinject.Assisted;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringEscapeUtils;
@@ -13,6 +14,7 @@ import com.devskiller.jfairy.producer.util.TextUtils;
 
 public class DefaultCompanyProvider implements CompanyProvider {
 
+	protected String names;
 	protected String name;
 	protected String domain;
 	protected String email;
@@ -21,13 +23,15 @@ public class DefaultCompanyProvider implements CompanyProvider {
 	protected BaseProducer baseProducer;
 	protected DataMaster dataMaster;
 
+
 	protected VATIdentificationNumberProvider vatIdentificationNumberProvider;
 
 	@Inject
-	public DefaultCompanyProvider(BaseProducer baseProducer,
+	public DefaultCompanyProvider(@Assisted String names,BaseProducer baseProducer,
 								  DataMaster dataMaster,
 								  VATIdentificationNumberProvider vatIdentificationNumberProvider,
 								  @Assisted CompanyProperties.CompanyProperty... companyProperties) {
+		this.names = names;
 		this.baseProducer = baseProducer;
 		this.dataMaster = dataMaster;
 		this.vatIdentificationNumberProvider = vatIdentificationNumberProvider;
@@ -45,7 +49,7 @@ public class DefaultCompanyProvider implements CompanyProvider {
 		generateEmail();
 		generateVatIdentificationNumber();
 
-		return new Company(name, domain, email, vatIdentificationNumber);
+		return new Company(names,name, domain, email, vatIdentificationNumber);
 	}
 
 	@Override
@@ -54,9 +58,10 @@ public class DefaultCompanyProvider implements CompanyProvider {
 			return;
 		}
 		name = dataMaster.getRandomValue(COMPANY_NAME);
-		if (baseProducer.trueOrFalse()) {
-			name += " " + dataMaster.getRandomValue(COMPANY_SUFFIX);
-		}
+		// 删除不必要的业务代码
+//		if (baseProducer.trueOrFalse()) {
+//			name += " " + dataMaster.getRandomValue(COMPANY_SUFFIX);
+//		}
 	}
 
 	/**
@@ -73,12 +78,14 @@ public class DefaultCompanyProvider implements CompanyProvider {
 			return;
 		}
 
-		String host = TextUtils.stripAccents(StringUtils.strip(StringUtils.deleteWhitespace(name.toLowerCase()), ".").replace("/", ""));
-		int len1 = host.length();
-		host = StringEscapeUtils.escapeJava(host).replaceAll("\\\\u", "");
-		int len2 = host.length();
-		if (len2 > len1 && len2 > 10)
-			host = host.substring(0, 10);
+
+		String host = TextUtils.stripAccents(StringUtils.strip(StringUtils.deleteWhitespace(baseProducer.getFullSpell(name)), ".").replace("/", ""));
+//		暂时注释掉
+//		int len1 = host.length();
+//		host = StringEscapeUtils.escapeJava(host).replaceAll("\\\\u", "");
+//		int len2 = host.length();
+//		if (len2 > len1 && len2 > 10)
+//			host = host.substring(0, 10);
 
 		domain = host + "." + dataMaster.getRandomValue(DOMAIN);
 	}
@@ -88,7 +95,12 @@ public class DefaultCompanyProvider implements CompanyProvider {
 		if (email != null) {
 			return;
 		}
-		email = dataMaster.getRandomValue(COMPANY_EMAIL);
+//		Person.Sex sex = baseProducer.trueOrFalse() ? Person.Sex.MALE : Person.Sex.FEMALE;
+//		String firstName = dataMaster.getValuesOfType("firstNames", sex.getName(), String.class);
+//		String lastNames = dataMaster.getValuesOfType("lastNames", sex.getName(), String.class);
+
+		email = baseProducer.getFullSpell(names);
+//		email = dataMaster.getRandomValue(COMPANY_EMAIL);
 	}
 
 	@Override
@@ -97,6 +109,11 @@ public class DefaultCompanyProvider implements CompanyProvider {
 			return;
 		}
 		vatIdentificationNumber = vatIdentificationNumberProvider.get();
+	}
+
+	@Override
+	public void setNames(String names){
+		this.names = names;
 	}
 
 	@Override

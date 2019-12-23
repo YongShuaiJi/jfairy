@@ -4,6 +4,8 @@ public interface Address {
 
 	String getStreet();
 
+	String getStreets();
+
 	String getStreetNumber();
 
 	String getApartmentNumber();

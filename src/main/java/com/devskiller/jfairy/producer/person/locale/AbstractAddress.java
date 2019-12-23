@@ -7,13 +7,15 @@ import com.devskiller.jfairy.producer.person.Address;
  */
 public abstract class AbstractAddress implements Address {
 	protected final String street;
+	protected final String streets;
 	protected final String streetNumber;
 	protected final String apartmentNumber;
 	protected final String postalCode;
 	protected final String city;
 
-	public AbstractAddress(String street, String streetNumber, String apartmentNumber, String postalCode, String city) {
+	public AbstractAddress(String street, String streets,String streetNumber, String apartmentNumber, String postalCode, String city) {
 		this.street = street;
+		this.streets = streets;
 		this.streetNumber = streetNumber;
 		this.postalCode = postalCode;
 		this.city = city;
@@ -22,6 +24,10 @@ public abstract class AbstractAddress implements Address {
 
 	public String getStreet() {
 		return street;
+	}
+
+	public String getStreets(){
+		return streets;
 	}
 
 	public String getStreetNumber() {

@@ -41,9 +41,9 @@ public class Bootstrap {
 
 	private static final String DATA_FILE_PREFIX = "jfairy";
 
-	public static Fairy createFairy(DataMaster dataMaster, Locale locale, RandomGenerator randomGenerator) {
+	public static Fairy createFairy(DataMaster dataMaster, RandomGenerator randomGenerator) {
 
-		FairyModule fairyModule = getFairyModuleForLocale(dataMaster, locale, randomGenerator);
+		FairyModule fairyModule = getFairyModuleForLocale(dataMaster, randomGenerator);
 
 		Injector injector = Guice.createInjector(fairyModule);
 
@@ -83,77 +83,36 @@ public class Bootstrap {
 	}
 
 	/**
-	 * Use this factory method to create dataset containing default jfairy.yml and jfairy_{langCode}.yml files
-	 * merged with custom files with the same name
-	 *
-	 * @param locale will be used to assess langCode for data file
-	 * @return Fairy instance
-	 */
-	public static Fairy create(Locale locale) {
-		return builder().withLocale(locale).build();
-	}
-
-	/**
 	 * Use this factory method to create your own dataset overriding bundled one
 	 *
-	 * @param locale         will be used to assess langCode for data file
 	 * @param dataFilePrefix prefix of the data file - final pattern will be jfairy.yml and dataFilePrefix_{langCode}.yml
 	 * @return Fairy instance
 	 */
-	public static Fairy create(Locale locale, String dataFilePrefix) {
-		return builder().withLocale(locale)
-				.withFilePrefix(dataFilePrefix)
+	public static Fairy create(String dataFilePrefix) {
+		return builder().withFilePrefix(dataFilePrefix)
 				.build();
 	}
 
 
-	public static Fairy create(Provider<DataMaster> dataMaster, Locale locale) {
-		return builder().withDataMasterProvider(dataMaster).withLocale(locale).build();
+	public static Fairy create(Provider<DataMaster> dataMaster) {
+		return builder().withDataMasterProvider(dataMaster).build();
 	}
 
 	/**
 	 * Support customized language config
 	 * @param dataMaster master of the config
-	 * @param locale The Locale to set.
 	 * @param randomGenerator specific random generator
 	 * @return FariyModule instance in accordance with locale
 	 */
-	private static FairyModule getFairyModuleForLocale(DataMaster dataMaster, Locale locale, RandomGenerator randomGenerator) {
+	private static FairyModule getFairyModuleForLocale(DataMaster dataMaster, RandomGenerator randomGenerator) {
 
-		LanguageCode code;
-		try {
-			code = LanguageCode.valueOf(locale.getLanguage().toUpperCase());
-		} catch (IllegalArgumentException e) {
-			LOG.warn("Uknown locale " + locale);
-			code = LanguageCode.EN;
-		}
+		return new ZhFairyModule(dataMaster, randomGenerator);
 
-		switch (code) {
-			case PL:
-				return new PlFairyModule(dataMaster, randomGenerator);
-			case EN:
-				return new EnFairyModule(dataMaster, randomGenerator);
-			case ES:
-				return new EsFairyModule(dataMaster, randomGenerator);
-			case FR:
-				return new EsFairyModule(dataMaster, randomGenerator);
-			case SV:
-				return new SvFairyModule(dataMaster, randomGenerator);
-			case ZH:
-				return new ZhFairyModule(dataMaster, randomGenerator);
-			case DE:
-				return new DeFairyModule(dataMaster, randomGenerator);
-			case KA:
-				return new KaFairyModule(dataMaster, randomGenerator);
-			default:
-				LOG.info("No data for your language - using EN");
-				return new EnFairyModule(dataMaster, randomGenerator);
-		}
 	}
 
 	public static class Builder {
 
-		private Locale locale = Locale.ENGLISH;
+		private Locale locale = Locale.CHINA;
 		private String filePrefix = DATA_FILE_PREFIX;
 		private RandomGenerator randomGenerator = new RandomGenerator();
 		private DataMaster dataMaster;
@@ -171,11 +130,9 @@ public class Bootstrap {
 		/**
 		 * Sets the locale for the resulting Fairy.
 		 *
-		 * @param locale The Locale to set.
 		 * @return the same Builder (for chaining).
 		 */
-		public Builder withLocale(Locale locale) {
-			this.locale = locale;
+		public Builder withLocale() {
 			return this;
 		}
 
@@ -224,7 +181,7 @@ public class Bootstrap {
 				dataMaster = getDefaultDataMaster();
 				fillDefaultDataMaster((MapBasedDataMaster) dataMaster, locale, filePrefix);
 			}
-			return createFairy(dataMaster, locale, randomGenerator);
+			return createFairy(dataMaster, randomGenerator);
 		}
 	}
 

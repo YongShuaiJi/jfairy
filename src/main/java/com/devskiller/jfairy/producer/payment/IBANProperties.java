@@ -12,14 +12,6 @@ public final class IBANProperties {
 	private final static HashMap<LanguageCode, CountryCode> COUNTRIES = new HashMap<>();
 
 	static {
-		COUNTRIES.put(LanguageCode.PL, CountryCode.PL);
-		COUNTRIES.put(LanguageCode.EN, CountryCode.GB);
-		COUNTRIES.put(LanguageCode.ES, CountryCode.ES);
-		COUNTRIES.put(LanguageCode.FR, CountryCode.FR);
-		COUNTRIES.put(LanguageCode.KA, CountryCode.GE);
-		COUNTRIES.put(LanguageCode.IT, CountryCode.IT);
-		COUNTRIES.put(LanguageCode.DE, CountryCode.DE);
-		COUNTRIES.put(LanguageCode.SV, CountryCode.SV);
 		COUNTRIES.put(LanguageCode.ZH, CountryCode.TW);
 	}
 
