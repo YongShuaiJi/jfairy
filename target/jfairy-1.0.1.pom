@@ -5,7 +5,7 @@
 
 	<groupId>io.github.yongshuaiji</groupId>
 	<artifactId>jfairy</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0.1</version>
 
 	<name>jFairy</name>
 	<description>Java fake data generator</description>
