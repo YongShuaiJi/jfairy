@@ -1,0 +1,24 @@
+-classpath
+'C:/Develop/Maven_Repository/local/repo/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar;C:/Develop/Maven_Repository/local/repo/org/apache/commons/commons-text/1.2/commons-text-1.2.jar;C:/Develop/Maven_Repository/local/repo/com/google/inject/guice/4.2.0/guice-4.2.0.jar;C:/Develop/Maven_Repository/local/repo/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar;C:/Develop/Maven_Repository/local/repo/org/iban4j/iban4j/3.2.1/iban4j-3.2.1.jar;C:/Develop/Maven_Repository/local/repo/org/yaml/snakeyaml/1.20/snakeyaml-1.20.jar;C:/Develop/Maven_Repository/local/repo/javax/inject/javax.inject/1/javax.inject-1.jar;C:/Develop/Maven_Repository/local/repo/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar;C:/Develop/Maven_Repository/local/repo/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar;C:/Develop/Maven_Repository/local/repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar;C:/Develop/Maven_Repository/local/repo/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar;C:/Develop/Maven_Repository/local/repo/com/google/inject/extensions/guice-assistedinject/4.2.0/guice-assistedinject-4.2.0.jar;C:/Develop/Maven_Repository/local/repo/com/belerweb/pinyin4j/2.5.1/pinyin4j-2.5.1.jar;C:/Develop/Maven_Repository/local/repo/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar;C:/Develop/Maven_Repository/local/repo/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar;C:/Develop/Maven_Repository/local/repo/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar;C:/Develop/Maven_Repository/local/repo/com/google/guava/guava/24.0-jre/guava-24.0-jre.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'C:/Develop/GitRepository/jfairy/src/main/java;C:/Develop/GitRepository/jfairy/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2019. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Develop/GitRepository/jfairy/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'jFairy 1.0.1 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Develop/GitRepository/jfairy/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'jFairy 1.0.1 API'
