@@ -34,6 +34,7 @@ public class DefaultPersonProvider implements PersonProvider {
 	protected String email;
 	protected String username;
 	protected String telephoneNumber;
+	protected String phone;
 	protected String password;
 	protected String companyEmail;
 	protected String nationalIdentityCardNumber;
@@ -89,6 +90,7 @@ public class DefaultPersonProvider implements PersonProvider {
 		generateEmail();
 		generateUsername();
 		generateTelephoneNumber();
+		generatePhone();
 		generateAge();
 		generateDateOfBirth();
 		generateCompanyEmail();
@@ -100,7 +102,7 @@ public class DefaultPersonProvider implements PersonProvider {
 		generateNationality();
 
 		return new Person(firstName, middleName, lastName, address, email,
-			username, password, sex, telephoneNumber, dateOfBirth, age,
+			username, password, sex, telephoneNumber, phone, dateOfBirth, age,
 			nationalIdentityCardNumber, nationalIdentificationNumber, passportNumber,
 			company, companyEmail, nationality);
 	}
@@ -118,13 +120,6 @@ public class DefaultPersonProvider implements PersonProvider {
 		if (company != null) {
 			return;
 		}
-
-
-
-
-
-
-
 
 		String name = lastName+firstName;
 		CompanyProvider companyProvider = companyFactory.produceCompany(name);
@@ -186,6 +181,15 @@ public class DefaultPersonProvider implements PersonProvider {
 			telephoneNumberFormat = dataMaster.getRandomValue(TELEPHONE_NUMBER_FORMATS);
 		}
 		telephoneNumber = baseProducer.numerify(telephoneNumberFormat);
+	}
+
+	@Override
+	public void generatePhone() {
+		if (phone != null) {
+			return;
+		}
+		String phone_pre = dataMaster.getRandomValue(String.valueOf(phone_prefix));
+		phone = baseProducer.fullPhone(phone_pre);
 	}
 
 	@Override

@@ -11,7 +11,8 @@ public class test {
 		Fairy fairy  =  Fairy.create();
 		Person person  =  fairy.person();
 		System.out.println(person.getFullName());
-		System.out.println(person.getAddress().getAddressLine1());
+		System.out.println(person.getPhone());
+		System.out.println(person.getTelephoneNumber());
 	}
 
 

@@ -19,6 +19,8 @@ public interface PersonProvider extends Provider<Person> {
 	String PERSONAL_EMAIL = "personalEmails";
 	@VisibleForTesting
 	String TELEPHONE_NUMBER_FORMATS = "telephone_number_formats";
+	@VisibleForTesting
+	String phone_prefix = "phone_number_prefix";
 
 	@Override
 	Person get();
@@ -38,6 +40,8 @@ public interface PersonProvider extends Provider<Person> {
 	void generateUsername();
 
 	void generateTelephoneNumber();
+
+	void generatePhone();
 
 	void generateAge();
 

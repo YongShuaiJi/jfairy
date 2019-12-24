@@ -4,8 +4,6 @@
 package com.devskiller.jfairy;
 
 import javax.inject.Inject;
-import java.util.Locale;
-
 import com.google.inject.Provider;
 
 import com.devskiller.jfairy.data.DataMaster;
@@ -49,6 +47,12 @@ public final class Fairy {
 		this.companyFactory = companyFactory;
 		this.ibanFactory = ibanFactory;
 	}
+
+	/**
+	 *  无参初始化创建
+	 *
+	 *   @return A {@link com.devskiller.jfairy.Fairy} instance
+	 * */
 
 	public static Fairy create() {
 		return Bootstrap.create();

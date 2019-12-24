@@ -193,6 +193,10 @@ public class BaseProducer {
 		return numerify(numberString, 0, 9);
 	}
 
+	public String fullPhone(String prefix){
+		return fullPhones(prefix);
+	}
+
 	/**
 	 * Replaces all {@code '#'} characters with random numbers from [{@code from} - {@code to}] range
 	 *
@@ -205,6 +209,10 @@ public class BaseProducer {
 		return replaceSymbolWithCharsFromTo(numberString, '#', Character.forDigit(from, 10), Character.forDigit(to, 10));
 	}
 
+	public String fullPhones(String prefix){
+		return getFullPhone(prefix);
+	}
+
 	/**
 	 * Processes text with {@code numerify()} and {@code letterify()} methods
 	 *
@@ -213,6 +221,16 @@ public class BaseProducer {
 	 */
 	public String bothify(String string) {
 		return letterify(numerify(string));
+	}
+
+	private String getFullPhone(String prefix){
+		String second=String.valueOf(getNum(1,888)+10000).substring(1);
+		String third=String.valueOf(getNum(1,9100)+10000).substring(1);
+		return prefix+second+third;
+	}
+
+	private int getNum(int start,int end) {
+		return (int)(Math.random()*(end-start+1)+start);
 	}
 
 	private String replaceSymbolWithCharsFromTo(String string, char symbol, char from, char to) {
