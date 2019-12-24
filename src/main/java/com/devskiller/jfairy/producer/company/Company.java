@@ -20,6 +20,10 @@ public class Company {
 		return name;
 	}
 
+	public String getNames(){
+		return names;
+	}
+
 	public String getUrl() {
 		return "http://www." + domain;
 	}

@@ -106,13 +106,14 @@ public class BaseProducer {
 		StringBuffer pybf = new StringBuffer();
 		char[] arr = chinese.toCharArray();
 		HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat();
-		defaultFormat.setCaseType(HanyuPinyinCaseType.LOWERCASE);
 		defaultFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] > 128) {
 				try {
 					pybf.append(PinyinHelper.toHanyuPinyinStringArray(arr[i], defaultFormat)[0]);
-				} catch (BadHanyuPinyinOutputFormatCombination e) {
+				} catch (ArrayIndexOutOfBoundsException ex){
+					ex.printStackTrace();
+				}catch (BadHanyuPinyinOutputFormatCombination e) {
 					e.printStackTrace();
 				}
 			} else {

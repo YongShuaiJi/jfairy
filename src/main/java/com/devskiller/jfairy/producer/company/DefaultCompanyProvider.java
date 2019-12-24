@@ -57,7 +57,7 @@ public class DefaultCompanyProvider implements CompanyProvider {
 		if (name != null) {
 			return;
 		}
-		name = dataMaster.getRandomValue(COMPANY_NAME);
+		name = dataMaster.getRandomValue(COMPANY_NAME)+dataMaster.getRandomValue(COMPANY_SUFFIX);
 	}
 
 	@Override
