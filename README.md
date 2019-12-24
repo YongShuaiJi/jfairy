@@ -7,7 +7,7 @@
 Java fake data generator. Based on Wikipedia:
 
 > Fairyland, in folklore, is the fabulous land or abode of fairies or fays.
-
+> 分支做了一些针对中文的优化，舍弃了除中文外的其他国家数据构建
 ## Try jFairy online!
 
 https://devskiller.com/datafairy/
@@ -19,19 +19,16 @@ Creating simple objects:
 ```java
 Fairy fairy = Fairy.create();
 Person person = fairy.person();
-
 System.out.println(person.getFirstName());            
-// Chloe Barker
+// 永帅   拿到名字
 System.out.println(person.getEmail());               
-// barker@yahoo.com
+// barker@yahoo.com 人名全拼+@+域名
 System.out.println(person.getTelephoneNumber());     
-// 690-950-802
+// 0531-83991929  形式如下: 0###-########或者########
 
 Person adultMale = fairy.person(PersonProperties.male(), PersonProperties.minAge(21));
 System.out.println(adultMale.isMale());           
 // true
-System.out.println(adultMale.getDateOfBirth());      
-// at least 21 years earlier
 ```
 
 Creating related objects:
@@ -40,24 +37,22 @@ Creating related objects:
 Fairy fairy = Fairy.create();
 Company company = fairy.company();
 System.out.println(company.getName());          
-// Robuten Associates
+// 山东镭数科技有限公司
 System.out.println(company.getUrl());           
 // http://www.robuteniaassociates.com
 
 Person salesman = fairy.person(PersonProperties.withCompany(company));
 System.out.println(salesman.getFullName());     
-// Juan Camacho
+// 纪永帅
 System.out.println(salesman.getCompanyEmail()); 
-// juan.camacho@robuteniaassociates.com
+// jiyongshuai@robuteniaassociates.com  人名全拼@公司前缀全拼+域名
 ```
 
 Locale support:
 
 ```java
 Fairy enFairy = Fairy.create();                               
-// Locale.ENGLISH is default
-Fairy plFairy = Fairy.create(Locale.forLanguageTag("pl"));    
-// Polish version
+默认中文内容，不支持其他构建其他国家的数据
 ```
 
 ## Other samples
