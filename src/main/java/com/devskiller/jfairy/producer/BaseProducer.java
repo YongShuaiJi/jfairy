@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Hashtable;
 import java.util.List;
 
 @Singleton
@@ -100,6 +101,22 @@ public class BaseProducer {
 	 */
 	public int randomBetween(int min, int max) {
 		return random.nextInt(min, max);
+	}
+
+	public int randomBetweenEven(int min, int max) {
+		int rdom = random.nextInt(min, max);
+		if (rdom % 2 != 0){
+			rdom = rdom+1;
+		}
+		return rdom;
+	}
+
+	public int randomBetweenOdd(int min, int max) {
+		int rdom = random.nextInt(min, max);
+		if (rdom % 2 == 0){
+			rdom = rdom+1;
+		}
+		return rdom;
 	}
 
 	public String getFullSpell(String chinese) {

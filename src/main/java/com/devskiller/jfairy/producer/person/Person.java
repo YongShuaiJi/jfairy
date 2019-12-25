@@ -42,13 +42,12 @@ public class Person {
 	private final Company company;
 	private final String companyEmail;
 	private final String nationalIdentityCardNumber;
-	private final String nationalIdentificationNumber;
 	private final String passportNumber;
 	private final Country nationality;
 
 	public Person(String firstName, String middleName, String lastName, Address address, String email, String username,
 	              String password, Sex sex, String telephoneNumber, String phone, LocalDate dateOfBirth, Integer age,
-	              String nationalIdentityCardNumber, String nationalIdentificationNumber, String passportNumber,
+	              String nationalIdentityCardNumber,String passportNumber,
 	              Company company, String companyEmail, Country nationality) {
 		this.nationalIdentityCardNumber = nationalIdentityCardNumber;
 		this.address = address;
@@ -63,17 +62,16 @@ public class Person {
 		this.phone = phone;
 		this.dateOfBirth = dateOfBirth;
 		this.age = age;
-		this.nationalIdentificationNumber = nationalIdentificationNumber;
 		this.company = company;
 		this.companyEmail = companyEmail;
 		this.passportNumber = passportNumber;
 		this.nationality = nationality;
 	}
 
-	public String getNationalIdentificationNumber() {
-		return nationalIdentificationNumber;
-	}
 
+	/**
+	 * 获取名字
+	 * */
 	public String getFirstName() {
 		return firstName;
 	}
@@ -82,55 +80,93 @@ public class Person {
 		return middleName;
 	}
 
+	/**
+	 * 获取姓
+	 * */
 	public String getLastName() {
 		return lastName;
 	}
 
+	/**
+	 * 获取个人邮箱
+	 * */
 	public String getEmail() {
 		return email;
 	}
 
+	/**
+	 * 获取用户名
+	 * */
 	public String getUsername() {
 		return username;
 	}
 
+	/**
+	 * 获取密码
+	 * */
 	public String getPassword() {
 		return password;
 	}
 
+	/**
+	 * 获取姓名
+	 * */
 	public String getFullName() {
 		return lastName + firstName;
 	}
 
+	/**
+	 * 性别是否为男
+	 * */
 	public boolean isMale() {
 		return sex == MALE;
 	}
 
+	/**
+	 * 性别是否为女
+	 * */
 	public boolean isFemale() {
 		return sex == FEMALE;
 	}
 
+	/**
+	 * 获取性别
+	 * */
 	public Sex getSex() {
 		return sex;
 	}
 
-
+	/**
+	 * 获取电话号码 格式为 0###-######## 或者 ########
+	 * */
 	public String getTelephoneNumber() {
 		return telephoneNumber;
 	}
 
+	/**
+	 * 获取手机号
+	 * */
 	public String getPhone(){
 		return phone;
 	}
 
+	/**
+	 * 获取出生日期 年月日  2010-10-01
+	 * */
 	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
 
+	/**
+	 * 获取年靓
+	 * */
 	public int getAge() {
 		return age;
 	}
 
+	/**
+	 * 获取身份证号
+	 * */
 	public String getNationalIdentityCardNumber() {
 		return nationalIdentityCardNumber;
 	}

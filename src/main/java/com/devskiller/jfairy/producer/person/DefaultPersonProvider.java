@@ -7,6 +7,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import com.devskiller.jfairy.producer.company.CompanyProvider;
+import com.devskiller.jfairy.producer.person.locale.zh.ZhNationalIdentityCardNumberProviders;
 import com.google.inject.assistedinject.Assisted;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -38,14 +39,12 @@ public class DefaultPersonProvider implements PersonProvider {
 	protected String password;
 	protected String companyEmail;
 	protected String nationalIdentityCardNumber;
-	protected String nationalIdentificationNumber;
 	protected String passportNumber;
 	protected Country nationality;
 
 	protected final DataMaster dataMaster;
 	protected final DateProducer dateProducer;
 	protected final BaseProducer baseProducer;
-	protected final NationalIdentificationNumberFactory nationalIdentificationNumberFactory;
 	protected final NationalIdentityCardNumberProvider nationalIdentityCardNumberProvider;
 	protected final AddressProvider addressProvider;
 	protected final CompanyFactory companyFactory;
@@ -56,7 +55,6 @@ public class DefaultPersonProvider implements PersonProvider {
 	public DefaultPersonProvider(DataMaster dataMaster,
 	                             DateProducer dateProducer,
 	                             BaseProducer baseProducer,
-	                             NationalIdentificationNumberFactory nationalIdentificationNumberFactory,
 	                             NationalIdentityCardNumberProvider nationalIdentityCardNumberProvider,
 	                             AddressProvider addressProvider,
 	                             CompanyFactory companyFactory,
@@ -67,7 +65,6 @@ public class DefaultPersonProvider implements PersonProvider {
 		this.dataMaster = dataMaster;
 		this.dateProducer = dateProducer;
 		this.baseProducer = baseProducer;
-		this.nationalIdentificationNumberFactory = nationalIdentificationNumberFactory;
 		this.nationalIdentityCardNumberProvider = nationalIdentityCardNumberProvider;
 		this.addressProvider = addressProvider;
 		this.passportNumberProvider = passportNumberProvider;
@@ -96,14 +93,13 @@ public class DefaultPersonProvider implements PersonProvider {
 		generateCompanyEmail();
 		generatePassword();
 		generateNationalIdentityCardNumber();
-		generateNationalIdentificationNumber();
 		generatePassportNumber();
 		generateAddress();
 		generateNationality();
 
 		return new Person(firstName, middleName, lastName, address, email,
 			username, password, sex, telephoneNumber, phone, dateOfBirth, age,
-			nationalIdentityCardNumber, nationalIdentificationNumber, passportNumber,
+			nationalIdentityCardNumber, passportNumber,
 			company, companyEmail, nationality);
 	}
 
@@ -237,17 +233,8 @@ public class DefaultPersonProvider implements PersonProvider {
 		if (nationalIdentityCardNumber != null) {
 			return;
 		}
-		nationalIdentityCardNumber = nationalIdentityCardNumberProvider.get();
-	}
-
-	@Override
-	public void generateNationalIdentificationNumber() {
-		if (nationalIdentificationNumber != null) {
-			return;
-		}
-		nationalIdentificationNumber = nationalIdentificationNumberFactory.produceNationalIdentificationNumberProvider(
-			NationalIdentificationNumberProperties.dateOfBirth(dateOfBirth),
-			NationalIdentificationNumberProperties.sex(sex)).get().getValue();
+		ZhNationalIdentityCardNumberProviders zhNationalIdentityCardNumberProviders = new ZhNationalIdentityCardNumberProviders(this.sex,dateOfBirth,baseProducer);
+		nationalIdentityCardNumber = zhNationalIdentityCardNumberProviders.get();
 	}
 
 	@Override
@@ -344,11 +331,6 @@ public class DefaultPersonProvider implements PersonProvider {
 	@Override
 	public void setNationalIdentityCardNumber(String nationalIdentityCardNumber) {
 		this.nationalIdentityCardNumber = nationalIdentityCardNumber;
-	}
-
-	@Override
-	public void setNationalIdentificationNumber(String nationalIdentificationNumber) {
-		this.nationalIdentificationNumber = nationalIdentificationNumber;
 	}
 
 	@Override

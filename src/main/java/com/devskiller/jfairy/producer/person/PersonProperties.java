@@ -190,15 +190,6 @@ public final class PersonProperties {
 		};
 	}
 
-	public static PersonProperty withNationalIdentificationNumber(final String nationalIdentificationNumber) {
-		return new PersonProperty() {
-			@Override
-			public void apply(PersonProvider personProvider, BaseProducer baseProducer) {
-				personProvider.setNationalIdentificationNumber(nationalIdentificationNumber);
-			}
-		};
-	}
-
 	public static PersonProperty withPassportNumber(final String passportNumber) {
 		return new PersonProperty() {
 			@Override

@@ -53,8 +53,6 @@ public interface PersonProvider extends Provider<Person> {
 
 	void generateNationalIdentityCardNumber();
 
-	void generateNationalIdentificationNumber();
-
 	void generateAddress();
 
 	void generatePassportNumber();
@@ -88,8 +86,6 @@ public interface PersonProvider extends Provider<Person> {
 	void setCompanyEmail(String companyEmail);
 
 	void setNationalIdentityCardNumber(String nationalIdentityCardNumber);
-
-	void setNationalIdentificationNumber(String nationalIdentificationNumber);
 
 	void setPassportNumber(String passportNumber);
 }
