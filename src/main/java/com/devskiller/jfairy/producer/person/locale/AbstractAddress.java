@@ -46,12 +46,12 @@ public abstract class AbstractAddress implements Address {
 		return city;
 	}
 
-	public abstract String getAddressLine1();
+	public abstract String getAddress();
 
-	public abstract String getAddressLine2();
+	public abstract String getPostDetails();
 
 	@Override
 	public String toString() {
-		return getAddressLine1() + System.lineSeparator() + getAddressLine2();
+		return getAddress() + System.lineSeparator() + getPostDetails();
 	}
 }

@@ -117,8 +117,8 @@ public class DefaultPersonProvider implements PersonProvider {
 			return;
 		}
 
-		String name = lastName+firstName;
-		CompanyProvider companyProvider = companyFactory.produceCompany(name);
+		String corporateName = lastName+firstName;
+		CompanyProvider companyProvider = companyFactory.produceCompany(corporateName);
 
 		company = companyProvider.get();
 	}

@@ -22,7 +22,7 @@ public interface CompanyProvider extends Provider<Company> {
 
 	void generateVatIdentificationNumber();
 
-	void setNames(String names);
+	void setCorporateName(String corporateName);
 
 	void setName(String name);
 

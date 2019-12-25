@@ -92,8 +92,8 @@ public final class Fairy {
 	 * @param companyProperties desired company features
 	 * @return A {@link com.devskiller.jfairy.producer.company.CompanyProvider} instance
 	 */
-	public Company company(String names ,CompanyProperties.CompanyProperty... companyProperties) {
-		return companyFactory.produceCompany(names,companyProperties).get();
+	public Company company(String corporateName ,CompanyProperties.CompanyProperty... companyProperties) {
+		return companyFactory.produceCompany(corporateName,companyProperties).get();
 	}
 
 	/**

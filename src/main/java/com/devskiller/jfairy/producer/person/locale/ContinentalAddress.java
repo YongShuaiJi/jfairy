@@ -17,13 +17,13 @@ public abstract class ContinentalAddress extends AbstractAddress {
 	}
 
 	@Override
-	public String getAddressLine1() {
+	public String getAddress() {
 		return street + getStreetNumberSeparator() + streetNumber
 				+ (isNotBlank(apartmentNumber) ? getApartmentMark() + apartmentNumber : "");
 	}
 
 	@Override
-	public String getAddressLine2() {
+	public String getPostDetails() {
 		return postalCode + " " + city;
 	}
 }

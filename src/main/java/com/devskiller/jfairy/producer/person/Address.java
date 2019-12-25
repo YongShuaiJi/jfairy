@@ -14,8 +14,8 @@ public interface Address {
 
 	String getCity();
 
-	String getAddressLine1();
+	String getAddress();
 
-	String getAddressLine2();
+	String getPostDetails();
 
 }

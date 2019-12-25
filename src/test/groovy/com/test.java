@@ -9,11 +9,11 @@ public class test {
 	@Test
 	public void test() {
 
-		for (int i = 0 ;i < 1;i++){
+		for (int i = 0 ;i < 100;i++){
 			Fairy fairy  =  Fairy.create();
 			Person person  =  fairy.person();
-			System.out.println(person.getNationalIdentityCardNumber());
-
+			System.out.println(person.getAge());
+			System.out.println(person.getDateOfBirth());
 		}
 
 

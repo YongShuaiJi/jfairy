@@ -14,7 +14,7 @@ import com.devskiller.jfairy.producer.util.TextUtils;
 
 public class DefaultCompanyProvider implements CompanyProvider {
 
-	protected String names;
+	protected String corporateName;
 	protected String name;
 	protected String domain;
 	protected String email;
@@ -27,11 +27,11 @@ public class DefaultCompanyProvider implements CompanyProvider {
 	protected VATIdentificationNumberProvider vatIdentificationNumberProvider;
 
 	@Inject
-	public DefaultCompanyProvider(@Assisted String names,BaseProducer baseProducer,
+	public DefaultCompanyProvider(@Assisted String corporateName,BaseProducer baseProducer,
 								  DataMaster dataMaster,
 								  VATIdentificationNumberProvider vatIdentificationNumberProvider,
 								  @Assisted CompanyProperties.CompanyProperty... companyProperties) {
-		this.names = names;
+		this.corporateName = corporateName;
 		this.baseProducer = baseProducer;
 		this.dataMaster = dataMaster;
 		this.vatIdentificationNumberProvider = vatIdentificationNumberProvider;
@@ -49,7 +49,7 @@ public class DefaultCompanyProvider implements CompanyProvider {
 		generateEmail();
 		generateVatIdentificationNumber();
 
-		return new Company(names,name, domain, email, vatIdentificationNumber);
+		return new Company(corporateName,name, domain, email, vatIdentificationNumber);
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class DefaultCompanyProvider implements CompanyProvider {
 		if (email != null) {
 			return;
 		}
-		email = baseProducer.getFullSpell(names);
+		email = baseProducer.getFullSpell(corporateName);
 	}
 
 	@Override
@@ -87,8 +87,8 @@ public class DefaultCompanyProvider implements CompanyProvider {
 	}
 
 	@Override
-	public void setNames(String names){
-		this.names = names;
+	public void setCorporateName(String corporateName){
+		this.corporateName = corporateName;
 	}
 
 	@Override

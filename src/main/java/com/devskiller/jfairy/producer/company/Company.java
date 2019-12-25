@@ -2,14 +2,14 @@ package com.devskiller.jfairy.producer.company;
 
 public class Company {
 
-	private final String names;
+	private final String corporateName;
 	private final String name;
 	private final String domain;
 	private final String email;
 	private final String vatIdentificationNumber;
 
-	public Company(String names,String name, String domain, String email, String vatIdentificationNumber) {
-		this.names = names;
+	public Company(String corporateName,String name, String domain, String email, String vatIdentificationNumber) {
+		this.corporateName = corporateName;
 		this.name = name;
 		this.domain = domain;
 		this.email = email;
@@ -20,8 +20,8 @@ public class Company {
 		return name;
 	}
 
-	public String getNames(){
-		return names;
+	public String getCorporateName(){
+		return corporateName;
 	}
 
 	public String getUrl() {

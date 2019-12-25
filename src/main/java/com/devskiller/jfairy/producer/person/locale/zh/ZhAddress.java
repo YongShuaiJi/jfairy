@@ -10,7 +10,6 @@ import com.devskiller.jfairy.producer.person.locale.AbstractAddress;
  */
 public class ZhAddress extends AbstractAddress {
 
-	private static final String CITY = "市";
 	private static final String NUMBER = "号";
 	private static final String ROOM = "房";
 	private static final String POSTCODE = "邮编";
@@ -20,16 +19,16 @@ public class ZhAddress extends AbstractAddress {
 	}
 
 	@Override
-	public String getAddressLine1() {
-		String line = city + CITY + street + streets + streetNumber + NUMBER;
+	public String getAddress() {
+		String line = street + streets + streetNumber + NUMBER;
 		if (apartmentNumber.length() > 0)
-			return line + " " + apartmentNumber + ROOM;
+			return line + apartmentNumber + ROOM;
 		else
 			return line;
 	}
 
 	@Override
-	public String getAddressLine2() {
+	public String getPostDetails() {
 		return POSTCODE + " " + postalCode;
 	}
 }

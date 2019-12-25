@@ -9,8 +9,8 @@ import com.devskiller.jfairy.producer.company.Company;
 
 public interface PersonProvider extends Provider<Person> {
 
-	int MIN_AGE = 1;
-	int MAX_AGE = 100;
+	int MIN_AGE = 10;
+	int MAX_AGE = 60;
 	@VisibleForTesting
 	String FIRST_NAME = "firstNames";
 	@VisibleForTesting
