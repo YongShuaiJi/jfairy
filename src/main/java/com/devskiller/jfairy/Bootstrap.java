@@ -37,8 +37,6 @@ import com.devskiller.jfairy.producer.util.LanguageCode;
  */
 public class Bootstrap {
 
-	private static final Logger LOG = LoggerFactory.getLogger(Bootstrap.class);
-
 	private static final String DATA_FILE_PREFIX = "jfairy";
 
 	public static Fairy createFairy(DataMaster dataMaster, RandomGenerator randomGenerator) {

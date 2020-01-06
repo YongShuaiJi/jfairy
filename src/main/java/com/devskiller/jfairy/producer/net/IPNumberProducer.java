@@ -1,7 +1,6 @@
 package com.devskiller.jfairy.producer.net;
 
 import javax.inject.Inject;
-
 import com.devskiller.jfairy.producer.BaseProducer;
 
 class IPNumberProducer {
