@@ -158,14 +158,14 @@ public class Person {
 	}
 
 	/**
-	 * 获取年靓
+	 * 获取年龄
 	 * */
 	public int getAge() {
 		return age;
 	}
 
 	/**
-	 * 获取身份证号
+	 * 获取身份证号: 两位市 两位县 两个顺序位是随机生成的，其他都进行过校验
 	 * */
 	public String getNationalIdentityCardNumber() {
 		return nationalIdentityCardNumber;
