@@ -35,9 +35,11 @@ Creating related objects:
 
 ```java
 Fairy fairy = Fairy.create();
+// 随机获取一个公司
 Company company = fairy.company();
-System.out.println(company.getName());          
-// 山东镭数科技有限公司
+// 指定公司的名称获取公司
+Company company = fairy.company(CompanyProperties.CompanyProperty.withName("山东镭数信息科技有限公司"));
+
 System.out.println(company.getUrl());           
 // http://www.robuteniaassociates.com
 
