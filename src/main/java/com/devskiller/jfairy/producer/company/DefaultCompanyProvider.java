@@ -1,11 +1,7 @@
 package com.devskiller.jfairy.producer.company;
 
 import javax.inject.Inject;
-
-import com.devskiller.jfairy.producer.person.Person;
-import com.google.inject.assistedinject.Assisted;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.text.StringEscapeUtils;
 
 import com.devskiller.jfairy.data.DataMaster;
 import com.devskiller.jfairy.producer.BaseProducer;
@@ -14,7 +10,6 @@ import com.devskiller.jfairy.producer.util.TextUtils;
 
 public class DefaultCompanyProvider implements CompanyProvider {
 
-	protected String corporateName;
 	protected String name;
 	protected String domain;
 	protected String email;
@@ -27,18 +22,12 @@ public class DefaultCompanyProvider implements CompanyProvider {
 	protected VATIdentificationNumberProvider vatIdentificationNumberProvider;
 
 	@Inject
-	public DefaultCompanyProvider(@Assisted String corporateName,BaseProducer baseProducer,
+	public DefaultCompanyProvider(BaseProducer baseProducer,
 								  DataMaster dataMaster,
-								  VATIdentificationNumberProvider vatIdentificationNumberProvider,
-								  @Assisted CompanyProperties.CompanyProperty... companyProperties) {
-		this.corporateName = corporateName;
+								  VATIdentificationNumberProvider vatIdentificationNumberProvider) {
 		this.baseProducer = baseProducer;
 		this.dataMaster = dataMaster;
 		this.vatIdentificationNumberProvider = vatIdentificationNumberProvider;
-
-		for (CompanyProperties.CompanyProperty companyProperty : companyProperties) {
-			companyProperty.apply(this);
-		}
 	}
 
 	@Override
@@ -49,7 +38,7 @@ public class DefaultCompanyProvider implements CompanyProvider {
 		generateEmail();
 		generateVatIdentificationNumber();
 
-		return new Company(corporateName,name, domain, email, vatIdentificationNumber);
+		return new Company(name, domain, email, vatIdentificationNumber);
 	}
 
 	@Override
@@ -75,7 +64,7 @@ public class DefaultCompanyProvider implements CompanyProvider {
 		if (email != null) {
 			return;
 		}
-		email = baseProducer.getFullSpell(corporateName);
+		email = baseProducer.getFullSpell(name);
 	}
 
 	@Override
@@ -86,10 +75,6 @@ public class DefaultCompanyProvider implements CompanyProvider {
 		vatIdentificationNumber = vatIdentificationNumberProvider.get();
 	}
 
-	@Override
-	public void setCorporateName(String corporateName){
-		this.corporateName = corporateName;
-	}
 
 	@Override
 	public void setName(String name) {

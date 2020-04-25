@@ -116,11 +116,7 @@ public class DefaultPersonProvider implements PersonProvider {
 		if (company != null) {
 			return;
 		}
-
-		String corporateName = lastName+firstName;
-		CompanyProvider companyProvider = companyFactory.produceCompany(corporateName);
-
-		company = companyProvider.get();
+		company = companyFactory.produceCompany().get();
 	}
 
 	@Override

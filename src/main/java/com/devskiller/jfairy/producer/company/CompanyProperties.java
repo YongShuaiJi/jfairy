@@ -10,15 +10,6 @@ public final class CompanyProperties {
 
 		public abstract void apply(CompanyProvider company);
 
-		public static CompanyProperty withNames(final String corporateName) {
-			return new CompanyProperty() {
-				@Override
-				public void apply(CompanyProvider companyProvider) {
-					companyProvider.setCorporateName(corporateName);
-				}
-			};
-		}
-
 		public static CompanyProperty withName(final String name) {
 			return new CompanyProperty() {
 				@Override

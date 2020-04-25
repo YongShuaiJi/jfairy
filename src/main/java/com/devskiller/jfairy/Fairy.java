@@ -88,12 +88,11 @@ public final class Fairy {
 
 	/**
 	 * Use this method to generate fake company
-	 *
-	 * @param companyProperties desired company features
+	 * 允许传公司名称 其他公司信息根据公司名称生成
 	 * @return A {@link com.devskiller.jfairy.producer.company.CompanyProvider} instance
 	 */
-	public Company company(String corporateName ,CompanyProperties.CompanyProperty... companyProperties) {
-		return companyFactory.produceCompany(corporateName,companyProperties).get();
+	public Company company() {
+		return companyFactory.produceCompany().get();
 	}
 
 	/**

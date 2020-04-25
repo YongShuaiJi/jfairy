@@ -22,8 +22,6 @@ public interface CompanyProvider extends Provider<Company> {
 
 	void generateVatIdentificationNumber();
 
-	void setCorporateName(String corporateName);
-
 	void setName(String name);
 
 	void setDomain(String domain);
