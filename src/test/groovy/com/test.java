@@ -16,7 +16,7 @@ public class test {
 //			System.out.println(fairy.company(""));
 //			System.out.println(person.getAge());
 //			System.out.println(fairy.company("山东鲁能足球").getVatIdentificationNumber());
-		Company company = fairy.company();
+		Company company = fairy.company(CompanyProperties.CompanyProperty.withName("山东黄金"));
 		System.out.println(company.getName());
 		System.out.println(company.getVatIdentificationNumber());
 		System.out.println(company.getUrl());

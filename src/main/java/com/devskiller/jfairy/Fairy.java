@@ -91,8 +91,8 @@ public final class Fairy {
 	 * 允许传公司名称 其他公司信息根据公司名称生成
 	 * @return A {@link com.devskiller.jfairy.producer.company.CompanyProvider} instance
 	 */
-	public Company company() {
-		return companyFactory.produceCompany().get();
+	public Company company(CompanyProperties.CompanyProperty... CompanyInfo) {
+		return companyFactory.produceCompany(CompanyInfo).get();
 	}
 
 	/**
