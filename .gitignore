@@ -1,4 +1,7 @@
 ### Maven ###
+.mvn/
+target/
+log/
 
 
 ### IntelliJ ###
@@ -14,5 +17,19 @@ out/
 /.settings
 /bin/
 
-### Other ###
+### Gradle
+.gradle
+/build/
+/out/
+!gradle/wrapper/gradle-wrapper.jar
+bin/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
