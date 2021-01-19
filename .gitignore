@@ -1,6 +1,6 @@
 ### Maven ###
 .mvn/
-target/
+target
 log/
 
 
